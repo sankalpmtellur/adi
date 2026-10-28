@@ -1,10 +1,10 @@
-import { listedSkills } from "@/content/skills";
+import { allSkillNames } from "@/content/skills";
 
 /** Decorative ticker of the skills list — the Skills section carries the accessible version. */
 export function Marquee() {
   const row = (
     <ul className="flex shrink-0 items-center">
-      {listedSkills.map((skill) => (
+      {allSkillNames.map((skill) => (
         <li key={skill} className="flex items-center">
           <span className="px-6 font-display text-3xl text-bone/85 sm:text-5xl">{skill}</span>
           <span className="text-xl text-saffron">✦</span>

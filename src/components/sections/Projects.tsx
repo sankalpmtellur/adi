@@ -4,7 +4,7 @@ import { Eyebrow, Reveal, SplitHeading } from "@/components/ui/Reveal";
 import { FixoraVisual } from "@/components/visuals/FixoraVisual";
 import { MarathonVisual } from "@/components/visuals/MarathonVisual";
 import { projects, type Project } from "@/content/projects";
-import { ProjectImage } from "./ProjectImage";
+import { ProjectImage } from "@/components/ui/ProjectImage";
 
 function bySlug(slug: string): Project {
   const project = projects.find((p) => p.slug === slug);
@@ -23,7 +23,7 @@ function ProjectLinks({ project }: { project: Project }) {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${linkBase} bg-saffron text-ink hover:bg-bone`}
+            className={`${linkBase} bg-saffron text-on-accent hover:bg-bone`}
             aria-label={`Live demo of ${project.name} (opens in a new tab)`}
           >
             Live demo

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { navLinks, site, socials, type SectionId } from "@/content/site";
 import { SocialIcon } from "@/components/ui/BrandIcon";
 import { useLenis } from "./SmoothScroll";
+import { ThemeToggle } from "./ThemeToggle";
 
 function useActiveSection(): SectionId {
   const [active, setActive] = useState<SectionId>("home");
@@ -34,7 +35,6 @@ function useActiveSection(): SectionId {
 export function Nav() {
   const active = useActiveSection();
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const reduce = useReducedMotion();
   const lenis = useLenis();
@@ -42,9 +42,7 @@ export function Nav() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (y) => {
-    const prev = scrollY.getPrevious() ?? 0;
     setScrolled(y > 24);
-    setHidden(y > 480 && y > prev && !open);
   });
 
   useEffect(() => {
@@ -66,12 +64,7 @@ export function Nav() {
 
   return (
     <>
-      <motion.header
-        initial={false}
-        animate={{ y: hidden ? -110 : 0 }}
-        transition={{ duration: reduce ? 0 : 0.45, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4"
-      >
+      <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
         <nav
           aria-label="Primary"
           className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-3 py-2 transition-[background-color,border-color,backdrop-filter] duration-500 sm:px-4 ${
@@ -111,9 +104,10 @@ export function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <a
               href="#contact"
-              className="hidden items-center gap-1.5 rounded-full bg-saffron px-5 py-2.5 font-label text-[0.95rem] tracking-wide text-ink transition-colors duration-300 hover:bg-bone sm:inline-flex"
+              className="hidden items-center gap-1.5 rounded-full bg-saffron px-5 py-2.5 font-label text-[0.95rem] tracking-wide text-on-accent transition-colors duration-300 hover:bg-bone sm:inline-flex"
             >
               Let&apos;s talk <ArrowUpRight className="size-4" aria-hidden />
             </a>
@@ -130,7 +124,7 @@ export function Nav() {
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       <AnimatePresence>
         {open ? (

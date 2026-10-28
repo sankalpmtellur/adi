@@ -48,7 +48,7 @@ export function Profiles() {
                     @{s.handle} <span className="hidden text-faint sm:inline">— {s.blurb}</span>
                   </span>
                 </span>
-                <span className="relative grid size-11 place-items-center rounded-full border border-line text-mute transition-all duration-500 ease-out-expo group-hover:rotate-45 group-hover:border-saffron group-hover:bg-saffron group-hover:text-ink">
+                <span className="relative grid size-11 place-items-center rounded-full border border-line text-mute transition-all duration-500 ease-out-expo group-hover:rotate-45 group-hover:border-saffron group-hover:bg-saffron group-hover:text-on-accent">
                   <ArrowUpRight className="size-5" aria-hidden />
                 </span>
                 <span className="sr-only">(opens in a new tab)</span>

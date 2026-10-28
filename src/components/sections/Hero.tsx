@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight, MapPin } from "lucide-react";
 import { useRef } from "react";
-import aditya from "@/assets/aditya.jpg";
+import aditya from "@/assets/images/aditya.jpg";
 import { ButtonLink } from "@/components/ui/Button";
 import { SocialIcon } from "@/components/ui/BrandIcon";
 import { site, socials } from "@/content/site";
@@ -49,7 +49,7 @@ function RotatingBadge() {
           <textPath href="#badge-circle">Full-stack · Data · Design ·</textPath>
         </text>
       </svg>
-      <span className="grid size-11 place-items-center rounded-full bg-saffron text-ink transition-transform duration-500 ease-out-expo group-hover:rotate-45">
+      <span className="grid size-11 place-items-center rounded-full bg-saffron text-on-accent transition-transform duration-500 ease-out-expo group-hover:rotate-45">
         <ArrowDown className="size-5" aria-hidden />
       </span>
     </a>

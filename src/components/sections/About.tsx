@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import aditya2 from "@/assets/aditya2.jpg";
+import aditya2 from "@/assets/images/aditya2.jpg";
 import { Eyebrow, Reveal, SplitHeading } from "@/components/ui/Reveal";
 import { site } from "@/content/site";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";

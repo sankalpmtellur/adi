@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aditya Shankar — Portfolio
 
-## Getting Started
+Personal portfolio of Aditya Shankar, full-stack developer. A single-page Next.js site with light and dark themes, GSAP scroll animations and all six of his GitHub projects.
 
-First, run the development server:
+## Stack
+
+Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · GSAP + ScrollTrigger · Motion · Lenis · Lucide · Simple Icons
+
+Fonts: Grenze Gotisch (headlines), Agbalumo (main text), Acme (labels).
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script          | What it does               |
+| --------------- | -------------------------- |
+| `npm run dev`   | Start the dev server       |
+| `npm run build` | Production build           |
+| `npm start`     | Serve the production build |
+| `npm run lint`  | Lint with ESLint           |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```text
+src/
+├── app/                 # layout, page, global styles, favicon, Open Graph image
+├── assets/images/       # photos and project screenshots (optimised by next/image)
+├── components/
+│   ├── layout/          # Nav, Footer, ThemeToggle, Preloader, Cursor, SmoothScroll
+│   ├── sections/        # Hero, About, Skills, Projects, Profiles, Contact, Marquee
+│   ├── ui/              # Reveal, Button, BrandIcon, ProjectImage
+│   └── visuals/         # Fixora state-machine diagram, Marathon terminal
+├── content/             # site.ts, skills.ts, projects.ts — all page copy lives here
+└── lib/                 # gsap setup, theme script
+```
 
-To learn more about Next.js, take a look at the following resources:
+To change text, links or projects, edit the files in `src/content/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploying to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Import the repository in Vercel; `vercel.json` sets the framework, build commands and security headers. Set `NEXT_PUBLIC_SITE_URL` to the production URL so Open Graph links resolve correctly.

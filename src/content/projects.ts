@@ -1,9 +1,9 @@
 import type { StaticImageData } from "next/image";
-import capstronImg from "@/assets/capstron.jpg";
-import dvaCafeImg from "@/assets/dva-cafe.jpg";
-import dvaHouseImg from "@/assets/dva-house.jpg";
-import foodBlogImg from "@/assets/foodblog.jpg";
-import tastyImg from "@/assets/tasty.jpg";
+import capstronImg from "@/assets/images/capstron.jpg";
+import dvaCafeImg from "@/assets/images/dva-cafe.jpg";
+import dvaHouseImg from "@/assets/images/dva-house.jpg";
+import foodBlogImg from "@/assets/images/foodblog.jpg";
+import tastyImg from "@/assets/images/tasty.jpg";
 
 export type ProjectVisual =
   | { kind: "image"; images: { src: StaticImageData; alt: string }[] }

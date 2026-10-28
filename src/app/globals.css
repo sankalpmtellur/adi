@@ -1,22 +1,27 @@
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #0d0c0a;
-  --color-ink-2: #141210;
-  --color-ink-3: #1c1916;
-  --color-bone: #efe7d8;
-  --color-mute: #a69d8c;
-  --color-faint: #6f685c;
-  --color-line: rgb(239 231 216 / 0.1);
-  --color-saffron: #f4b23e;
-  --color-jade: #6cc3b0;
-  --color-ember: #e2643b;
-  --color-sky: #5b8fd6;
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* Colour tokens resolve through the theme variables below, so utilities like bg-ink/80 follow the active theme. */
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-bone: var(--bone);
+  --color-mute: var(--mute);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-saffron: var(--saffron);
+  --color-on-accent: var(--on-accent);
+  --color-jade: var(--jade);
+  --color-ember: var(--ember);
+  --color-sky: var(--sky);
 
   --font-display: var(--font-grenze), "Times New Roman", serif;
   --font-label: var(--font-acme), system-ui, sans-serif;
   --font-script: var(--font-agbalumo), cursive;
-  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  /* Agbalumo carries the main reading text. */
+  --font-sans: var(--font-agbalumo), system-ui, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --animate-marquee: marquee 38s linear infinite;
@@ -32,8 +37,73 @@
   }
 }
 
-:root {
+:root,
+:root[data-theme="dark"] {
   color-scheme: dark;
+  --ink: #0d0c0a;
+  --ink-2: #141210;
+  --ink-3: #1c1916;
+  --bone: #efe7d8;
+  --mute: #a69d8c;
+  --faint: #6f685c;
+  --line: rgb(239 231 216 / 0.1);
+  --saffron: #f4b23e;
+  --on-accent: #0d0c0a;
+  --jade: #6cc3b0;
+  --ember: #e2643b;
+  --sky: #5b8fd6;
+  --grain-opacity: 0.07;
+}
+
+/* Warm paper for the light theme; accents darkened to keep text contrast above 4.5:1. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --ink: #f6f0e4;
+  --ink-2: #efe7d7;
+  --ink-3: #e5dbc8;
+  --bone: #1b1712;
+  --mute: #564e41;
+  --faint: #7d7364;
+  --line: rgb(27 23 18 / 0.13);
+  --saffron: #a35f00;
+  --on-accent: #fffaf0;
+  --jade: #2d7a6a;
+  --ember: #c4502a;
+  --sky: #3f74bd;
+  --grain-opacity: 0.05;
+}
+
+/* Without JavaScript, follow the system preference. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --ink: #f6f0e4;
+    --ink-2: #efe7d7;
+    --ink-3: #e5dbc8;
+    --bone: #1b1712;
+    --mute: #564e41;
+    --faint: #7d7364;
+    --line: rgb(27 23 18 / 0.13);
+    --saffron: #a35f00;
+    --on-accent: #fffaf0;
+    --jade: #2d7a6a;
+    --ember: #c4502a;
+    --sky: #3f74bd;
+    --grain-opacity: 0.05;
+  }
+}
+
+/* Smooth colour cross-fade while switching themes. */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.45s ease,
+    border-color 0.45s ease,
+    color 0.45s ease,
+    fill 0.45s ease,
+    stroke 0.45s ease !important;
 }
 
 html {
@@ -63,7 +133,7 @@ body {
 
 ::selection {
   background: var(--color-saffron);
-  color: var(--color-ink);
+  color: var(--color-on-accent);
 }
 
 :focus-visible {
@@ -79,13 +149,13 @@ body {
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: var(--grain-opacity);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @utility text-outline {
   color: transparent;
-  -webkit-text-stroke: 1px rgb(239 231 216 / 0.35);
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--bone) 35%, transparent);
 }
 
 @utility container-page {

@@ -82,7 +82,7 @@ export function Contact() {
           <div>
             <a
               href={`mailto:${site.email}`}
-              className="group inline-flex max-w-full items-center gap-4 rounded-full bg-saffron py-3 pl-3 pr-6 text-ink transition-colors duration-300 hover:bg-bone sm:gap-5 sm:pr-8"
+              className="group inline-flex max-w-full items-center gap-4 rounded-full bg-saffron py-3 pl-3 pr-6 text-on-accent transition-colors duration-300 hover:bg-bone sm:gap-5 sm:pr-8"
             >
               <span className="grid size-12 shrink-0 place-items-center rounded-full bg-ink text-saffron transition-transform duration-500 ease-out-expo group-hover:-rotate-12 sm:size-14">
                 <Mail className="size-5 sm:size-6" aria-hidden />

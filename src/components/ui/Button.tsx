@@ -15,7 +15,7 @@ interface ButtonLinkProps {
 }
 
 const variants: Record<Variant, string> = {
-  primary: "bg-saffron text-ink hover:bg-bone",
+  primary: "bg-saffron text-on-accent hover:bg-bone",
   ghost: "border border-line text-bone hover:border-saffron/70 hover:text-saffron",
 };
 

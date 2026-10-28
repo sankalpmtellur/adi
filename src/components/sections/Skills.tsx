@@ -4,7 +4,7 @@ import { Eyebrow, Reveal, SplitHeading } from "@/components/ui/Reveal";
 import { skillGroups, type Skill } from "@/content/skills";
 
 // Bento rhythm: the denser groups get the wider tiles.
-const spans = ["lg:col-span-4", "lg:col-span-4", "lg:col-span-4", "lg:col-span-3", "lg:col-span-5", "lg:col-span-4"];
+const spans = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-7", "lg:col-span-5"];
 
 function SourceMark({ skill }: { skill: Skill }) {
   return skill.source === "listed" ? (
@@ -48,7 +48,7 @@ export function Skills() {
           </div>
           <Reveal className="lg:col-span-5">
             <p className="text-lg leading-relaxed text-mute">
-              Skills from my own list, plus the tools that show up in the code of the projects below.
+              The core of my own skills list, plus two tools that show up in the projects below.
             </p>
             <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 font-label text-sm tracking-wide text-mute">
               <li className="flex items-center gap-2">

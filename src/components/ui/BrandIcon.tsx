@@ -1,4 +1,4 @@
-import { Braces, ChartColumnBig, Database, FileSpreadsheet, Workflow } from "lucide-react";
+import { ChartColumnBig, Database, FileSpreadsheet } from "lucide-react";
 import type { SimpleIcon } from "simple-icons";
 import { siCodeforces, siGithub, siInstagram, siLeetcode } from "simple-icons";
 import type { SocialKey } from "@/content/site";
@@ -12,8 +12,6 @@ const fallbackGlyphs = {
   sql: Database,
   excel: FileSpreadsheet,
   tableau: ChartColumnBig,
-  powerquery: Workflow,
-  api: Braces,
 } satisfies Record<FallbackGlyph, unknown>;
 
 interface IconProps {
